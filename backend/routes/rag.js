@@ -64,10 +64,11 @@ router.post("/ask", async (req, res) => {
     );
 
     const answer = hfResponse.data[0]?.generated_text || "No answer found";
-
+    console.log("Answer from rag.js", answer);
     res.json({ answer });
   } catch (error) {
     res.status(500).json({ error: error.message });
+    console.log(error);
   }
 });
 

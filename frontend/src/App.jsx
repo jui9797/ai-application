@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ingestDocument, askQuestion } from "./api";
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
       setAnswer(res.data.answer);
     } catch (err) {
       alert("Failed to get answer");
+      console.log(err);
     }
   };
 
@@ -47,7 +48,18 @@ function App() {
         onChange={(e) => setQuery(e.target.value)}
         style={{ width: "100%", padding: 8 }}
       />
-      <button onClick={handleAsk} style={{ marginTop: 10 }}>
+      <button
+        onClick={handleAsk}
+        style={{
+          marginTop: 10,
+          cursor: "pointer",
+          backgroundColor: "#007bff",
+          color: "#fff",
+          border: "none",
+          padding: "10px 15px",
+          borderRadius: 5,
+        }}
+      >
         Ask
       </button>
 
